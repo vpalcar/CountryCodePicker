@@ -92,6 +92,7 @@ class _MyAppState extends State<MyApp> {
         CountryLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       home: Scaffold(
         appBar: AppBar(
@@ -100,63 +101,23 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
+            children: [
               CountryCodePicker(
                 onChanged: print,
-                // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
                 initialSelection: 'IT',
-                favorite: const ['+39', 'FR'],
-                countryFilter: const ['IT', 'FR'],
-                showFlagDialog: false,
-              ),
-              CountryCodePicker(
-                onChanged: print,
-                // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
-                initialSelection: 'IT',
-                favorite: const ['+39', 'FR'],
-                countryFilter: const ['IT', 'FR'],
-                // flag can be styled with BoxDecoration's `borderRadius` and `shape` fields
-                flagDecoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(7),
-                ),
-              ),
-              SizedBox(
-                width: 400,
-                height: 60,
-                child: CountryCodePicker(
-                  onChanged: print,
-                  hideMainText: true,
-                  showFlagMain: true,
-                  showFlag: false,
-                  initialSelection: 'TF',
-                  hideSearch: true,
-                  showCountryOnly: true,
-                  showOnlyCountryWhenClosed: true,
-                  alignLeft: true,
-                ),
-              ),
-              SizedBox(
-                width: 400,
-                height: 60,
-                child: CountryCodePicker(
-                  onChanged: (e) => print(e.toLongString()),
-                  initialSelection: 'TF',
-                  showCountryOnly: true,
-                  showOnlyCountryWhenClosed: true,
-                  favorite: const ['+39', 'FR'],
-                ),
-              ),
-              SizedBox(
-                width: 100,
-                height: 60,
-                child: CountryCodePicker(
-                  enabled: false,
-                  onChanged: (c) => c.name,
-                  initialSelection: 'TF',
-                  showCountryOnly: true,
-                  showOnlyCountryWhenClosed: true,
-                  favorite: const ['+39', 'FR'],
-                ),
+                iconColor: Colors.black,
+                codeStyle: const TextStyle(fontWeight: FontWeight.w700),
+                dialogTextStyle: const TextStyle(),
+                searchStyle: const TextStyle(),
+                closeIcon: const Icon(Icons.close),
+                selectionIcon: const Icon(Icons.check),
+                barrierColor: Colors.green,
+                searchDecoration:
+                    const InputDecoration(border: OutlineInputBorder()),
+                flagDecoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(2.0)),
+                buttonBackgroundColor: Colors.black12,
+                title: const Text('COUNTRY CODES'),
               ),
             ],
           ),
