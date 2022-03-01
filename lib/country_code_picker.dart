@@ -88,6 +88,7 @@ class CountryCodePicker extends StatefulWidget {
   final List<Map<String, String>> countryList;
 
   final Text title;
+  final Icon? expandIcon;
 
   CountryCodePicker({
     this.onChanged,
@@ -126,6 +127,7 @@ class CountryCodePicker extends StatefulWidget {
     required this.closeIcon,
     required this.selectionIcon,
     required this.title,
+    this.expandIcon,
     this.countryList = codes,
     Key? key,
   }) : super(key: key);
@@ -190,13 +192,15 @@ class CountryCodePickerState extends State<CountryCodePicker> {
               ),
             ),
             const SizedBox(
-              width: 10.0,
+              width: 5.0,
             ),
-            Icon(
-              Icons.expand_more,
-              color: widget.iconColor,
-              size: 18.0,
-            ),
+            widget.expandIcon == null
+                ? Icon(
+                    Icons.expand_more,
+                    color: widget.iconColor,
+                    size: 18.0,
+                  )
+                : widget.expandIcon!,
           ],
         ),
       ),
