@@ -1,6 +1,5 @@
 library country_code_picker;
 
-import 'package:collection/collection.dart' show IterableExtension;
 import 'package:country_code_picker/country_code.dart';
 import 'package:country_code_picker/country_codes.dart';
 import 'package:country_code_picker/selection_dialog.dart';
@@ -26,6 +25,7 @@ class CountryCodePicker extends StatefulWidget {
   final TextOverflow textOverflow;
   final Icon closeIcon;
   final Icon selectionIcon;
+  final Color cursorColor;
 
   /// Barrier color of ModalBottomSheet
   final Color? barrierColor;
@@ -103,6 +103,7 @@ class CountryCodePicker extends StatefulWidget {
     required this.searchStyle,
     required this.dialogTextStyle,
     required this.codeStyle,
+    required this.cursorColor,
     this.emptySearchBuilder,
     this.showOnlyCountryWhenClosed = false,
     this.alignLeft = false,
@@ -270,6 +271,7 @@ class CountryCodePickerState extends State<CountryCodePicker> {
         codeStyle: widget.codeStyle,
         boxDecoration: widget.boxDecoration,
         selectedItem: selectedItem,
+        cursorColor: widget.cursorColor,
         showFlag: widget.showFlagDialog != null
             ? widget.showFlagDialog
             : widget.showFlag,

@@ -111,6 +111,7 @@ class _MyAppState extends State<MyApp> {
                 searchStyle: const TextStyle(),
                 closeIcon: const Icon(Icons.close),
                 selectionIcon: const Icon(Icons.check),
+                cursorColor: Colors.red,
                 barrierColor: Colors.green,
                 searchDecoration:
                     const InputDecoration(border: OutlineInputBorder()),
