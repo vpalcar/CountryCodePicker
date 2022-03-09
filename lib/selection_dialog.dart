@@ -18,9 +18,9 @@ class SelectionDialog extends StatefulWidget {
   final Decoration? flagDecoration;
   final Size? size;
   final bool hideSearch;
-  final Icon? closeIcon;
+  final Widget? closeIcon;
   final CountryCode? selectedItem;
-  final Icon selectionIcon;
+  final Widget selectionIcon;
   final Color cursorColor;
 
   /// Background color of SelectionDialog

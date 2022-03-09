@@ -23,8 +23,8 @@ class CountryCodePicker extends StatefulWidget {
   final Function(CountryCode?)? builder;
   final bool enabled;
   final TextOverflow textOverflow;
-  final Icon closeIcon;
-  final Icon selectionIcon;
+  final Widget closeIcon;
+  final Widget selectionIcon;
   final Color cursorColor;
 
   /// Barrier color of ModalBottomSheet
@@ -88,7 +88,7 @@ class CountryCodePicker extends StatefulWidget {
   final List<Map<String, String>> countryList;
 
   final Text title;
-  final Icon? expandIcon;
+  final Widget? expandIcon;
 
   CountryCodePicker({
     this.onChanged,
