@@ -26,6 +26,7 @@ class CountryCodePicker extends StatefulWidget {
   final Widget closeIcon;
   final Widget selectionIcon;
   final Color cursorColor;
+  final Widget? child;
 
   /// Barrier color of ModalBottomSheet
   final Color? barrierColor;
@@ -97,6 +98,7 @@ class CountryCodePicker extends StatefulWidget {
     this.onInit,
     this.initialSelection,
     this.textStyle,
+    this.child,
     this.padding = const EdgeInsets.all(8.0),
     this.showCountryOnly = false,
     this.searchDecoration = const InputDecoration(),
@@ -170,42 +172,47 @@ class CountryCodePickerState extends State<CountryCodePicker> {
   Widget build(BuildContext context) {
     Widget _widget;
 
-    _widget = GestureDetector(
-      onTap: showCountryCodePickerDialog,
-      child: Container(
-        height: 60.0,
-        width: 77.0,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          color: widget.buttonBackgroundColor,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              clipBehavior:
-                  widget.flagDecoration == null ? Clip.none : Clip.hardEdge,
-              decoration: widget.flagDecoration,
-              child: Image.asset(
-                selectedItem!.flagUri!,
-                package: 'country_code_picker',
-                width: 32.0,
+    if (widget.child == null) {
+      _widget = GestureDetector(
+        onTap: showCountryCodePickerDialog,
+        child: Container(
+          height: 60.0,
+          width: 77.0,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.0),
+            color: widget.buttonBackgroundColor,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                clipBehavior:
+                    widget.flagDecoration == null ? Clip.none : Clip.hardEdge,
+                decoration: widget.flagDecoration,
+                child: Image.asset(
+                  selectedItem!.flagUri!,
+                  package: 'country_code_picker',
+                  width: 32.0,
+                ),
               ),
-            ),
-            const SizedBox(
-              width: 5.0,
-            ),
-            widget.expandIcon == null
-                ? Icon(
-                    Icons.expand_more,
-                    color: widget.iconColor,
-                    size: 18.0,
-                  )
-                : widget.expandIcon!,
-          ],
+              const SizedBox(
+                width: 5.0,
+              ),
+              widget.expandIcon == null
+                  ? Icon(
+                      Icons.expand_more,
+                      color: widget.iconColor,
+                      size: 18.0,
+                    )
+                  : widget.expandIcon!,
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    } else {
+      _widget = GestureDetector(
+          onTap: showCountryCodePickerDialog, child: widget.child!);
+    }
 
     return _widget;
   }
