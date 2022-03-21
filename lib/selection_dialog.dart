@@ -22,6 +22,7 @@ class SelectionDialog extends StatefulWidget {
   final CountryCode? selectedItem;
   final Widget selectionIcon;
   final Color cursorColor;
+  final bool? showDialCode;
 
   /// Background color of SelectionDialog
   final Color? backgroundColor;
@@ -42,6 +43,7 @@ class SelectionDialog extends StatefulWidget {
     required this.selectionIcon,
     required this.selectedItem,
     this.boxDecoration,
+    this.showDialCode,
     this.showFlag,
     this.flagDecoration,
     this.flagWidth = 32.0,
@@ -172,16 +174,17 @@ class _SelectionDialogState extends State<SelectionDialog> {
                   ),
                 ),
               ),
-            Flexible(
-              child: Container(
-                width: 60.0,
-                child: Text(
-                  e.dialCode!,
-                  overflow: TextOverflow.fade,
-                  style: widget.codeStyle,
+            if (widget.showDialCode ?? true)
+              Flexible(
+                child: Container(
+                  width: 60.0,
+                  child: Text(
+                    e.dialCode!,
+                    overflow: TextOverflow.fade,
+                    style: widget.codeStyle,
+                  ),
                 ),
               ),
-            ),
             Expanded(
               flex: 4,
               child: Text(

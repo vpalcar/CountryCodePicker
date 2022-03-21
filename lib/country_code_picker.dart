@@ -282,6 +282,7 @@ class CountryCodePickerState extends State<CountryCodePicker> {
         showFlag: widget.showFlagDialog != null
             ? widget.showFlagDialog
             : widget.showFlag,
+        showDialCode: !widget.showCountryOnly,
         flagWidth: widget.flagWidth,
         flagDecoration: widget.flagDecoration,
         size: widget.dialogSize,
