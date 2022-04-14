@@ -91,7 +91,11 @@ class CountryCodePicker extends StatefulWidget {
   final Text title;
   final Widget? expandIcon;
 
-  final double borderRadius;
+  final double buttonBorderRadius;
+
+  final double buttonHeight;
+
+  final double buttonWidth;
 
   CountryCodePicker({
     this.onChanged,
@@ -119,7 +123,9 @@ class CountryCodePicker extends StatefulWidget {
     this.builder,
     this.flagWidth = 32.0,
     this.enabled = true,
-    this.borderRadius = 10.0,
+    this.buttonBorderRadius = 10.0,
+    this.buttonHeight = 60.0,
+    this.buttonWidth = 77.0,
     this.textOverflow = TextOverflow.ellipsis,
     this.barrierColor,
     this.backgroundColor,
@@ -179,10 +185,10 @@ class CountryCodePickerState extends State<CountryCodePicker> {
       _widget = GestureDetector(
         onTap: showCountryCodePickerDialog,
         child: Container(
-          height: 60.0,
-          width: 77.0,
+          height: widget.buttonHeight,
+          width: widget.buttonWidth,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(widget.borderRadius),
+            borderRadius: BorderRadius.circular(widget.buttonBorderRadius),
             color: widget.buttonBackgroundColor,
           ),
           child: Row(
