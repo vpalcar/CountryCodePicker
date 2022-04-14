@@ -194,6 +194,7 @@ class CountryCodePickerState extends State<CountryCodePicker> {
           alignment: Alignment.center,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
                 clipBehavior:
