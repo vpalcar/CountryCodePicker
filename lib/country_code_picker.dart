@@ -191,6 +191,7 @@ class CountryCodePickerState extends State<CountryCodePicker> {
             borderRadius: BorderRadius.circular(widget.buttonBorderRadius),
             color: widget.buttonBackgroundColor,
           ),
+          alignment: Alignment.center,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
