@@ -91,6 +91,8 @@ class CountryCodePicker extends StatefulWidget {
   final Text title;
   final Widget? expandIcon;
 
+  final double borderRadius;
+
   CountryCodePicker({
     this.onChanged,
     required this.buttonBackgroundColor,
@@ -117,6 +119,7 @@ class CountryCodePicker extends StatefulWidget {
     this.builder,
     this.flagWidth = 32.0,
     this.enabled = true,
+    this.borderRadius = 10.0,
     this.textOverflow = TextOverflow.ellipsis,
     this.barrierColor,
     this.backgroundColor,
@@ -179,7 +182,7 @@ class CountryCodePickerState extends State<CountryCodePicker> {
           height: 60.0,
           width: 77.0,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(widget.borderRadius),
             color: widget.buttonBackgroundColor,
           ),
           child: Row(
