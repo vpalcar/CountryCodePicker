@@ -1,7 +1,7 @@
 import 'package:country_code_picker/country_code.dart';
 import 'package:country_code_picker/country_localizations.dart';
 import 'package:country_code_picker/dashed_line.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 /// selection dialog used for selection of the country code
 class SelectionDialog extends StatefulWidget {
